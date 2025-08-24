@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کریمی وب استودیو - توسعه دهنده وب سایت در کابل</title>
+    <meta name="description" content="کریمی وب استودیو - ساخت وب سایت های حرفه ای، سیستم های مدیریت و فروشگاه های آنلاین در کابل، افغانستان">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .tech-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-purple-600">علی محمد کریمی (طراح وب و اپلیکشن)</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="#home" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">خانه</a>
+                        <a href="#about" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">درباره ما</a>
+                        <a href="#services" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">خدمات</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">نمونه کارها</a>
+                        <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">تماس</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-purple-600">خانه</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-purple-600">درباره ما</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-purple-600">خدمات</a>
+                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-purple-600">نمونه کارها</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-purple-600">تماس</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg tech-pattern min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        سلام! من علی محمد هستم
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                        توسعه دهنده فول استک با بیش از ۶ سال تجربه در ساخت وب سایت ها و سیستم های مدیریت. هدف من ارائه راه حل های دیجیتال سریع، مقرون به صرفه و با کیفیت بالا است.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors pulse-glow text-center">
+                            <i class="fas fa-rocket ml-2"></i>
+                            شروع پروژه
+                        </a>
+                        <a href="https://wa.me/93764002319" class="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors text-center">
+                            <i class="fab fa-whatsapp ml-2"></i>
+                            واتساپ: ۰۷۶۴۰۰۲۳۱۹
+                        </a>
+                    </div>
+                </div>
+                <div class="floating">
+                    <div class="relative">
+                        <!-- Developer Illustration -->
+                        <svg viewBox="0 0 400 300" class="w-full h-auto">
+                            <!-- Background -->
+                            <rect width="400" height="300" fill="url(#bgGradient)"/>
+                            
+                            <!-- Laptop -->
+                            <rect x="100" y="150" width="200" height="120" rx="10" fill="#2d3748"/>
+                            <rect x="110" y="160" width="180" height="100" rx="5" fill="#1a202c"/>
+                            <rect x="115" y="165" width="170" height="90" fill="#000"/>
+                            
+                            <!-- Code on screen -->
+                            <rect x="120" y="170" width="60" height="4" fill="#48bb78"/>
+                            <rect x="120" y="180" width="80" height="4" fill="#ed8936"/>
+                            <rect x="120" y="190" width="40" height="4" fill="#4299e1"/>
+                            <rect x="120" y="200" width="100" height="4" fill="#9f7aea"/>
+                            
+                            <!-- Person -->
+                            <circle cx="200" cy="100" r="25" fill="#fbb6ce"/>
+                            <rect x="185" y="125" width="30" height="40" rx="15" fill="#4299e1"/>
+                            <rect x="175" y="140" width="15" height="30" fill="#fbb6ce"/>
+                            <rect x="210" y="140" width="15" height="30" fill="#fbb6ce"/>
+                            
+                            <!-- Floating elements -->
+                            <circle cx="80" cy="80" r="8" fill="#48bb78" opacity="0.7">
+                                <animate attributeName="cy" values="80;70;80" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <rect x="320" y="100" width="15" height="15" fill="#ed8936" opacity="0.7">
+                                <animate attributeName="y" values="100;90;100" dur="2.5s" repeatCount="indefinite"/>
+                            </rect>
+                            <circle cx="350" cy="60" r="6" fill="#9f7aea" opacity="0.7">
+                                <animate attributeName="cy" values="60;50;60" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <defs>
+                                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">خدمات کلیدی ما</h2>
+                <p class="text-xl text-gray-600">راه حل های جامع برای نیازهای دیجیتال شما</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت های استاتیک و داینامیک</h3>
+                    <p class="text-gray-600">از وب سایت های شخصی تا سیستم های پیچیده مدیریت</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">سیستم های مدیریت و فروشگاه های آنلاین</h3>
+                    <p class="text-gray-600">راه حل های کامل برای مدیریت کسب و کار شما</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-server text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">خدمات پشتیبانی و هاستینگ</h3>
+                    <p class="text-gray-600">نگهداری و پشتیبانی ۲۴/۷ از پروژه های شما</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">درباره من</h2>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-3 text-purple-600">
+                                <i class="fas fa-briefcase ml-2"></i>
+                                تجربه حرفه ای
+                            </h3>
+                            <p class="text-gray-700">بیش از ۶ سال تجربه در توسعه وب با تخصص در React، Next.js، Node.js و MongoDB</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-3 text-green-600">
+                                <i class="fas fa-target ml-2"></i>
+                                ماموریت
+                            </h3>
+                            <p class="text-gray-700">ساخت پروژه هایی که واقعاً مهم هستند و به کسب و کارها و افراد کمک می کنند</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600">
+                                <i class="fas fa-chart-line ml-2"></i>
+                                سابقه کار
+                            </h3>
+                            <p class="text-gray-700">مدیر پروژه و توسعه دهنده سیستم های مدیریت و وب سایت های استاتیک. ساخت بیش از ۱۰ وبلاگ شخصی و سیستم مدیریت</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors text-center">
+                            <i class="fas fa-globe ml-2"></i>
+                            مشاهده نمونه کارها
+                        </a>
+                        <div class="text-gray-600 flex items-center">
+                            <i class="fas fa-map-marker-alt ml-2"></i>
+                            کابل، افغانستان
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Skills Visualization -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-center">مهارت های تکنیکی</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">React & Next.js</span>
+                                    <span class="text-purple-600">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-purple-600 h-3 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Node.js & MongoDB</span>
+                                    <span class="text-green-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-green-600 h-3 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">UI/UX Design</span>
+                                    <span class="text-blue-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-blue-600 h-3 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Project Management</span>
+                                    <span class="text-orange-600">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-3">
+                                    <div class="bg-orange-600 h-3 rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Packages Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">پکیج های وب سایت</h2>
+                <p class="text-xl text-gray-600">انتخاب کنید که کدام بهترین گزینه برای شماست</p>
+            </div>
+
+            <!-- Static Websites -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-center mb-8 text-purple-600">وب سایت های استاتیک</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border-2 border-blue-200">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-blog text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">وبلاگ شخصی</h4>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>طراحی ساده</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>صفحات معرفی</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>گالری تصاویر</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>بدون پایگاه داده</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">$30-70</div>
+                            <div class="text-gray-600 mb-4">۲-۳ روز</div>
+                            <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">سفارش دهید</button>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl border-2 border-green-200">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-building text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">وب سایت کسب و کار کوچک</h4>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>صفحات خدمات</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>فرم تماس</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>گالری تصاویر</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>دکمه های CTA</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-green-600 mb-2">$50-120</div>
+                            <div class="text-gray-600 mb-4">۳-۴ روز</div>
+                            <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">سفارش دهید</button>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl border-2 border-purple-200">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-rocket text-white text-2xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900">صفحه فرود / محصول</h4>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>تک صفحه</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>دکمه های CTA</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>فرم ثبت نام/تماس</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>طراحی ریسپانسیو</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">$40-100</div>
+                            <div class="text-gray-600 mb-4">۲-۳ روز</div>
+                            <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">سفارش دهید</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Websites -->
+            <div>
+                <h3 class="text-3xl font-bold text-center mb-8 text-orange-600">وب سایت های داینامیک</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card-hover bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl border-2 border-indigo-200">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-900">سیستم مدیریت دوره ها</h4>
+                        </div>
+                        <ul class="space-y-2 mb-4 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>ثبت نام آنلاین</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>مدیریت دانشجو</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پرداخت شهریه</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-indigo-600 mb-1">$150-400</div>
+                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
+                            <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm">سفارش</button>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border-2 border-red-200">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-shopping-cart text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-900">فروشگاه آنلاین</h4>
+                        </div>
+                        <ul class="space-y-2 mb-4 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>نمایش محصولات</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>سبد خرید</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پرداخت آنلاین</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-red-600 mb-1">$200-500</div>
+                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
+                            <button class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors text-sm">سفارش</button>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl border-2 border-yellow-200">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-calculator text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-900">سیستم حسابداری</h4>
+                        </div>
+                        <ul class="space-y-2 mb-4 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>فروش و خرید</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>موجودی انبار</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>گزارشات</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-yellow-600 mb-1">$250-600</div>
+                            <div class="text-gray-600 text-sm mb-3">۵-۶ روز</div>
+                            <button class="w-full bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm">سفارش</button>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl border-2 border-teal-200">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-gray-900">وب سایت شرکتی</h4>
+                        </div>
+                        <ul class="space-y-2 mb-4 text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پنل مدیریت محتوا</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>فرم درخواست خدمات</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>گزارش مشتریان</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-teal-600 mb-1">$150-400</div>
+                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
+                            <button class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-colors text-sm">سفارش</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">خدمات تخصصی ما</h2>
+                <p class="text-xl text-gray-600">راه حل های کامل برای حضور دیجیتال شما</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-laptop-code text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت استاتیک</h3>
+                    <p class="text-gray-600">وب سایت های سریع و بهینه برای نمایش محتوا و خدمات</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-database text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت داینامیک</h3>
+                    <p class="text-gray-600">سیستم های تعاملی با پایگاه داده و قابلیت های پیشرفته</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">سیستم های مدیریت</h3>
+                    <p class="text-gray-600">CMS، فروشگاه آنلاین، سیستم های آموزشی و حسابداری</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">هاستینگ و پشتیبانی</h3>
+                    <p class="text-gray-600">خدمات هاستینگ مطمئن و پشتیبانی فنی ۲۴ ساعته</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">با ما در تماس باشید</h2>
+                <p class="text-xl text-gray-600">آماده همکاری با شما هستیم</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">فرم تماس</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">نام</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ایمیل</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">موضوع</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">پیام</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                            <i class="fas fa-paper-plane ml-2"></i>
+                            ارسال پیام
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4 text-green-700">راه های تماس</h3>
+                        <div class="space-y-4">
+                            <a href="https://wa.me/93764002319" class="flex items-center p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">واتساپ</div>
+                                    <div class="text-gray-600">+93 764 002 319</div>
+                                </div>
+                            </a>
+                            <a href="mailto:0764002319ali@gmail.com" class="flex items-center p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
+                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-envelope text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">ایمیل</div>
+                                    <div class="text-gray-600">0764002319ali@gmail.com</div>
+                                </div>
+                            </a>
+                            <div class="flex items-center p-4 bg-white rounded-lg">
+                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center ml-4">
+                                    <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">موقعیت</div>
+                                    <div class="text-gray-600">کابل، افغانستان</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4 text-purple-700">لینک های مفید</h3>
+                        <div class="space-y-3">
+                            <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fas fa-globe text-purple-600 ml-3"></i>
+                                <span>نمونه کارها و وبلاگ شخصی</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fab fa-linkedin text-blue-600 ml-3"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                                <i class="fab fa-github text-gray-800 ml-3"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">علی محمد کریمی (طراح وب و اپلیکشن)</h3>
+                    <p class="text-gray-300 mb-4">ارائه راه حل های دیجیتال حرفه ای برای کسب و کارها و افراد در افغانستان</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="https://wa.me/93764002319" class="text-green-400 hover:text-green-300">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
+                        <a href="mailto:0764002319ali@gmail.com" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                        <a href="https://ali638-cyber.github.io/AliMohammad/" class="text-purple-400 hover:text-purple-300">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">خدمات</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>وب سایت های استاتیک</li>
+                        <li>وب سایت های داینامیک</li>
+                        <li>سیستم های مدیریت</li>
+                        <li>فروشگاه های آنلاین</li>
+                        <li>هاستینگ و پشتیبانی</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">تماس سریع</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fas fa-phone ml-2"></i>+93 764 002 319</p>
+                        <p><i class="fas fa-envelope ml-2"></i>0764002319ali@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt ml-2"></i>کابل، افغانستان</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; ۲۰۲۴ کریمی وب استودیو. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `سلام! من ${name} هستم.
+            
+موضوع: ${subject}
+
+پیام: ${message}
+
+ایمیل من: ${email}`;
+            
+            const whatsappUrl = `https://wa.me/93764002319?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            alert('پیام شما آماده ارسال است! در حال انتقال به واتساپ...');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Order buttons functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('سفارش')) {
+                button.addEventListener('click', function() {
+                    const packageName = this.closest('.card-hover').querySelector('h4').textContent;
+                    const price = this.closest('.card-hover').querySelector('.font-bold').textContent;
+                    
+                    const message = `سلام! من علاقه مند به سفارش پکیج "${packageName}" با قیمت ${price} هستم. لطفاً اطلاعات بیشتری ارائه دهید.`;
+                    
+                    const whatsappUrl = `https://wa.me/93764002319?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card-hover, section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add typing effect to hero title
+        const heroTitle = document.querySelector('#home h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after page load
+        window.addEventListener('load', function() {
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9743ea26e26bfd9c',t:'MTc1NjA0OTY3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
