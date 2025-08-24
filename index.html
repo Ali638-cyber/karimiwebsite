@@ -3,285 +3,605 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کریمی وب استودیو - توسعه دهنده وب سایت در کابل</title>
-    <meta name="description" content="کریمی وب استودیو - ساخت وب سایت های حرفه ای، سیستم های مدیریت و فروشگاه های آنلاین در کابل، افغانستان">
+    <title>علی محمد کریمی - طراح وب و اپلیکشن در کابل</title>
+    <meta name="description" content="علی محمد کریمی - طراح وب و اپلیکشن حرفه ای، ساخت وب سایت های استاتیک و داینامیک، سیستم های مدیریت و فروشگاه های آنلاین در کابل، افغانستان">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
         
         * {
             font-family: 'Vazirmatn', sans-serif;
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Advanced Gradients */
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
-        .card-hover {
-            transition: all 0.3s ease;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        .neon-glow {
+            box-shadow: 
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 15px currentColor,
+                0 0 20px currentColor;
         }
         
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
         }
         
-        .fade-in {
-            animation: fadeIn 1s ease-in;
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+            box-shadow: 
+                -10px 10px 30px rgba(0,0,0,0.2),
+                0 0 50px rgba(102, 126, 234, 0.3);
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .floating-complex {
+            animation: floatingComplex 6s ease-in-out infinite;
         }
         
-        .pulse-glow {
-            animation: pulseGlow 2s infinite;
+        @keyframes floatingComplex {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            25% { 
+                transform: translateY(-20px) rotate(2deg) scale(1.05);
+            }
+            50% { 
+                transform: translateY(-10px) rotate(-1deg) scale(1.02);
+            }
+            75% { 
+                transform: translateY(-15px) rotate(1deg) scale(1.03);
+            }
         }
         
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8); }
+        .text-gradient {
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .tech-pattern {
+        .morphing-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: morphing 8s ease-in-out infinite;
+        }
+        
+        @keyframes morphing {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .particle-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .particle-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
-                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+            animation: particleMove 20s linear infinite;
+        }
+        
+        @keyframes particleMove {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            33% { transform: translateX(-30px) translateY(-30px) rotate(120deg); }
+            66% { transform: translateX(30px) translateY(-60px) rotate(240deg); }
+            100% { transform: translateX(0) translateY(0) rotate(360deg); }
+        }
+        
+        .holographic {
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.5) 50%, 
+                transparent 70%);
+            background-size: 200% 200%;
+            animation: holographicShine 3s linear infinite;
+        }
+        
+        @keyframes holographicShine {
+            0% { background-position: -200% -200%; }
+            100% { background-position: 200% 200%; }
+        }
+        
+        .pulse-ring {
+            position: relative;
+        }
+        
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .zoom-in {
+            animation: zoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-glow:hover::before {
+            left: 100%;
+        }
+        
+        .skill-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            width: 30px;
+            animation: skillShine 2s linear infinite;
+        }
+        
+        @keyframes skillShine {
+            0% { left: -30px; }
+            100% { left: 100%; }
+        }
+        
+        .price-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: priceRotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .price-card:hover::before {
+            opacity: 1;
+        }
+        
+        @keyframes priceRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
             background-size: 50px 50px;
+            animation: techGridMove 20s linear infinite;
+        }
+        
+        @keyframes techGridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        .icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .text-shadow-glow {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+        }
+        
+        .border-gradient {
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #667eea, #764ba2) border-box;
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(45deg, transparent 49%, #667eea 50%, transparent 51%);
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <nav class="nav-glass fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold text-purple-600">علی محمد کریمی (طراح وب و اپلیکشن)</h1>
+                    <div class="flex-shrink-0 pulse-ring">
+                        <h1 class="text-3xl font-black text-gradient">علی محمد کریمی (طراح وب و اپلیکشن)</h1>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
-                        <a href="#home" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">خانه</a>
-                        <a href="#about" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">درباره ما</a>
-                        <a href="#services" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">خدمات</a>
-                        <a href="#portfolio" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">نمونه کارها</a>
-                        <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">تماس</a>
+                    <div class="ml-10 flex items-baseline space-x-6 space-x-reverse">
+                        <a href="#home" class="text-black hover:text-purple-600 px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-purple-100 hover:scale-105">خانه</a>
+                        <a href="#about" class="text-black hover:text-purple-600 px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-purple-100 hover:scale-105">درباره ما</a>
+                        <a href="#services" class="text-black hover:text-purple-600 px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-purple-100 hover:scale-105">خدمات</a>
+                        <a href="#portfolio" class="text-black hover:text-purple-600 px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-purple-100 hover:scale-105">نمونه کارها</a>
+                        <a href="#contact" class="text-black hover:text-purple-600 px-4 py-2 rounded-full text-lg font-semibold transition-all duration-300 hover:bg-purple-100 hover:scale-105">تماس</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-purple-600 p-2 rounded-lg hover:bg-purple-100 transition-all">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-purple-600">خانه</a>
-                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-purple-600">درباره ما</a>
-                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-purple-600">خدمات</a>
-                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-purple-600">نمونه کارها</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-purple-600">تماس</a>
+        <div id="mobile-menu" class="md:hidden hidden glass-effect border-t">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="#home" class="block px-4 py-3 text-gray-700 hover:text-purple-600 rounded-lg hover:bg-purple-100 transition-all">خانه</a>
+                <a href="#about" class="block px-4 py-3 text-gray-700 hover:text-purple-600 rounded-lg hover:bg-purple-100 transition-all">درباره ما</a>
+                <a href="#services" class="block px-4 py-3 text-gray-700 hover:text-purple-600 rounded-lg hover:bg-purple-100 transition-all">خدمات</a>
+                <a href="#portfolio" class="block px-4 py-3 text-gray-700 hover:text-purple-600 rounded-lg hover:bg-purple-100 transition-all">نمونه کارها</a>
+                <a href="#contact" class="block px-4 py-3 text-gray-700 hover:text-purple-600 rounded-lg hover:bg-purple-100 transition-all">تماس</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg tech-pattern min-h-screen flex items-center pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-white fade-in">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                        سلام! من علی محمد هستم
-                    </h1>
-                    <p class="text-xl md:text-2xl mb-8 leading-relaxed">
-                        توسعه دهنده فول استک با بیش از ۶ سال تجربه در ساخت وب سایت ها و سیستم های مدیریت. هدف من ارائه راه حل های دیجیتال سریع، مقرون به صرفه و با کیفیت بالا است.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors pulse-glow text-center">
-                            <i class="fas fa-rocket ml-2"></i>
-                            شروع پروژه
-                        </a>
-                        <a href="https://wa.me/93764002319" class="bg-green-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors text-center">
-                            <i class="fab fa-whatsapp ml-2"></i>
-                            واتساپ: ۰۷۶۴۰۰۲۳۱۹
-                        </a>
+    <section id="home" class="hero-gradient tech-grid particle-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="text-white slide-in-left">
+                    <div class="glass-effect p-8 rounded-3xl border-gradient">
+                        <h1 class="text-5xl md:text-7xl font-black mb-8 text-black">
+                            سلام! من علی محمد هستم
+                        </h1>
+                        <p class="text-xl md:text-3xl mb-10 leading-relaxed font-medium text-black">
+                            توسعه دهنده فول استک با بیش از ۶ سال تجربه در ساخت وب سایت ها و سیستم های مدیریت. هدف من ارائه راه حل های دیجیتال سریع، مقرون به صرفه و با کیفیت بالا است.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6">
+                            <a href="#contact" class="btn-glow bg-white text-purple-600 px-10 py-5 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300 text-center text-xl neon-glow hover:scale-105">
+                                <i class="fas fa-rocket ml-3 icon-bounce"></i>
+                                شروع پروژه
+                            </a>
+                            <a href="https://wa.me/93764002319" class="btn-glow morphing-bg text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 text-center text-xl hover:scale-105">
+                                <i class="fab fa-whatsapp ml-3 icon-bounce"></i>
+                                واتساپ: ۰۷۶۴۰۰۲۳۱۹
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="floating">
+                <div class="floating-complex slide-in-right">
                     <div class="relative">
-                        <!-- Developer Illustration -->
-                        <svg viewBox="0 0 400 300" class="w-full h-auto">
-                            <!-- Background -->
-                            <rect width="400" height="300" fill="url(#bgGradient)"/>
-                            
-                            <!-- Laptop -->
-                            <rect x="100" y="150" width="200" height="120" rx="10" fill="#2d3748"/>
-                            <rect x="110" y="160" width="180" height="100" rx="5" fill="#1a202c"/>
-                            <rect x="115" y="165" width="170" height="90" fill="#000"/>
-                            
-                            <!-- Code on screen -->
-                            <rect x="120" y="170" width="60" height="4" fill="#48bb78"/>
-                            <rect x="120" y="180" width="80" height="4" fill="#ed8936"/>
-                            <rect x="120" y="190" width="40" height="4" fill="#4299e1"/>
-                            <rect x="120" y="200" width="100" height="4" fill="#9f7aea"/>
-                            
-                            <!-- Person -->
-                            <circle cx="200" cy="100" r="25" fill="#fbb6ce"/>
-                            <rect x="185" y="125" width="30" height="40" rx="15" fill="#4299e1"/>
-                            <rect x="175" y="140" width="15" height="30" fill="#fbb6ce"/>
-                            <rect x="210" y="140" width="15" height="30" fill="#fbb6ce"/>
-                            
-                            <!-- Floating elements -->
-                            <circle cx="80" cy="80" r="8" fill="#48bb78" opacity="0.7">
-                                <animate attributeName="cy" values="80;70;80" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <rect x="320" y="100" width="15" height="15" fill="#ed8936" opacity="0.7">
-                                <animate attributeName="y" values="100;90;100" dur="2.5s" repeatCount="indefinite"/>
-                            </rect>
-                            <circle cx="350" cy="60" r="6" fill="#9f7aea" opacity="0.7">
-                                <animate attributeName="cy" values="60;50;60" dur="3s" repeatCount="indefinite"/>
-                            </circle>
-                            
+                        <!-- Enhanced Developer Illustration -->
+                        <svg viewBox="0 0 500 400" class="w-full h-auto drop-shadow-2xl">
+                            <!-- Animated Background -->
                             <defs>
                                 <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8">
+                                        <animate attributeName="stop-color" values="#667eea;#764ba2;#f093fb;#667eea" dur="8s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.6">
+                                        <animate attributeName="stop-color" values="#764ba2;#f093fb;#667eea;#764ba2" dur="8s" repeatCount="indefinite"/>
+                                    </stop>
                                 </linearGradient>
+                                
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
                             </defs>
+                            
+                            <rect width="500" height="400" fill="url(#bgGradient)" rx="30"/>
+                            
+                            <!-- Floating Particles -->
+                            <circle cx="100" cy="100" r="4" fill="#fff" opacity="0.7" filter="url(#glow)">
+                                <animate attributeName="cy" values="100;80;100" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="400" cy="150" r="6" fill="#f093fb" opacity="0.8" filter="url(#glow)">
+                                <animate attributeName="cy" values="150;130;150" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="cx" values="400;420;400" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="80" cy="300" r="5" fill="#23d5ab" opacity="0.9" filter="url(#glow)">
+                                <animate attributeName="cy" values="300;280;300" dur="3.5s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Enhanced Laptop -->
+                            <rect x="150" y="200" width="200" height="120" rx="15" fill="#1a202c" filter="url(#glow)"/>
+                            <rect x="160" y="210" width="180" height="100" rx="10" fill="#000"/>
+                            <rect x="165" y="215" width="170" height="90" fill="#0a0a0a"/>
+                            
+                            <!-- Animated Code Lines -->
+                            <rect x="175" y="225" width="80" height="6" fill="#48bb78" rx="3">
+                                <animate attributeName="width" values="80;120;80" dur="2s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="175" y="240" width="100" height="6" fill="#ed8936" rx="3">
+                                <animate attributeName="width" values="100;140;100" dur="2.5s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="175" y="255" width="60" height="6" fill="#4299e1" rx="3">
+                                <animate attributeName="width" values="60;90;60" dur="1.8s" repeatCount="indefinite"/>
+                            </rect>
+                            <rect x="175" y="270" width="130" height="6" fill="#9f7aea" rx="3">
+                                <animate attributeName="width" values="130;150;130" dur="3s" repeatCount="indefinite"/>
+                            </rect>
+                            
+                            <!-- Enhanced Person -->
+                            <circle cx="250" cy="140" r="35" fill="#fbb6ce" filter="url(#glow)"/>
+                            <rect x="225" y="175" width="50" height="60" rx="25" fill="#4299e1" filter="url(#glow)"/>
+                            <rect x="205" y="200" width="20" height="40" fill="#fbb6ce"/>
+                            <rect x="275" y="200" width="20" height="40" fill="#fbb6ce"/>
+                            
+                            <!-- Floating Tech Icons -->
+                            <g transform="translate(350, 80)">
+                                <circle r="20" fill="#667eea" opacity="0.8" filter="url(#glow)">
+                                    <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="8" text-anchor="middle" fill="white" font-size="16" font-weight="bold">JS</text>
+                                <animateTransform attributeName="transform" type="rotate" values="0 350 80;360 350 80" dur="10s" repeatCount="indefinite"/>
+                            </g>
+                            
+                            <g transform="translate(420, 250)">
+                                <rect x="-15" y="-15" width="30" height="30" fill="#f093fb" opacity="0.8" rx="5" filter="url(#glow)">
+                                    <animate attributeName="width" values="30;35;30" dur="2.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="height" values="30;35;30" dur="2.5s" repeatCount="indefinite"/>
+                                </rect>
+                                <text x="0" y="5" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CSS</text>
+                                <animateTransform attributeName="transform" type="rotate" values="0 420 250;-360 420 250" dur="12s" repeatCount="indefinite"/>
+                            </g>
+                            
+                            <g transform="translate(50, 200)">
+                                <polygon points="0,-20 17.32,10 -17.32,10" fill="#23d5ab" opacity="0.8" filter="url(#glow)">
+                                    <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="2s" repeatCount="indefinite"/>
+                                </polygon>
+                                <text x="0" y="5" text-anchor="middle" fill="white" font-size="10" font-weight="bold">HTML</text>
+                                <animateTransform attributeName="transform" type="rotate" values="0 50 200;360 50 200" dur="8s" repeatCount="indefinite"/>
+                            </g>
                         </svg>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-purple-400 rounded-full opacity-20 floating-complex"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-pink-400 rounded-full opacity-15 floating-complex" style="animation-delay: -2s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-400 rounded-full opacity-25 floating-complex" style="animation-delay: -4s;"></div>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
     <!-- Services Overview -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">خدمات کلیدی ما</h2>
-                <p class="text-xl text-gray-600">راه حل های جامع برای نیازهای دیجیتال شما</p>
+    <section class="py-32 morphing-bg particle-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 zoom-in">
+                <h2 class="text-6xl font-black text-black mb-6">خدمات کلیدی ما</h2>
+                <p class="text-2xl text-black font-medium">راه حل های جامع برای نیازهای دیجیتال شما</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-code text-white text-2xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-code text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت های استاتیک و داینامیک</h3>
-                    <p class="text-gray-600">از وب سایت های شخصی تا سیستم های پیچیده مدیریت</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">توسعه وب سایت های استاتیک و داینامیک</h3>
+                    <p class="text-black text-lg">از وب سایت های شخصی تا سیستم های پیچیده مدیریت</p>
                 </div>
-                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-cogs text-white text-2xl"></i>
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic" style="animation-delay: 0.2s;">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-cogs text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">سیستم های مدیریت و فروشگاه های آنلاین</h3>
-                    <p class="text-gray-600">راه حل های کامل برای مدیریت کسب و کار شما</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">سیستم های مدیریت و فروشگاه های آنلاین</h3>
+                    <p class="text-black text-lg">راه حل های کامل برای مدیریت کسب و کار شما</p>
                 </div>
-                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl text-center">
-                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-server text-white text-2xl"></i>
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic" style="animation-delay: 0.4s;">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-server text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">خدمات پشتیبانی و هاستینگ</h3>
-                    <p class="text-gray-600">نگهداری و پشتیبانی ۲۴/۷ از پروژه های شما</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">خدمات پشتیبانی و هاستینگ</h3>
+                    <p class="text-black text-lg">نگهداری و پشتیبانی ۲۴/۷ از پروژه های شما</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
+    <section id="about" class="py-32 bg-gradient-to-br from-gray-50 to-purple-50 particle-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">درباره من</h2>
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-semibold mb-3 text-purple-600">
-                                <i class="fas fa-briefcase ml-2"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="slide-in-left">
+                    <h2 class="text-6xl font-black text-gradient mb-10">درباره من</h2>
+                    <div class="space-y-8">
+                        <div class="card-3d glass-effect p-8 rounded-2xl border-gradient">
+                            <h3 class="text-2xl font-bold mb-4 text-black">
+                                <i class="fas fa-briefcase ml-3 icon-bounce"></i>
                                 تجربه حرفه ای
                             </h3>
-                            <p class="text-gray-700">بیش از ۶ سال تجربه در توسعه وب با تخصص در React، Next.js، Node.js و MongoDB</p>
+                            <p class="text-black text-lg">بیش از ۶ سال تجربه در توسعه وب با تخصص در React، Next.js، Node.js و MongoDB</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-semibold mb-3 text-green-600">
-                                <i class="fas fa-target ml-2"></i>
+                        <div class="card-3d glass-effect p-8 rounded-2xl border-gradient">
+                            <h3 class="text-2xl font-bold mb-4 text-black">
+                                <i class="fas fa-target ml-3 icon-bounce"></i>
                                 ماموریت
                             </h3>
-                            <p class="text-gray-700">ساخت پروژه هایی که واقعاً مهم هستند و به کسب و کارها و افراد کمک می کنند</p>
+                            <p class="text-black text-lg">ساخت پروژه هایی که واقعاً مهم هستند و به کسب و کارها و افراد کمک می کنند</p>
                         </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-semibold mb-3 text-blue-600">
-                                <i class="fas fa-chart-line ml-2"></i>
+                        <div class="card-3d glass-effect p-8 rounded-2xl border-gradient">
+                            <h3 class="text-2xl font-bold mb-4 text-black">
+                                <i class="fas fa-chart-line ml-3 icon-bounce"></i>
                                 سابقه کار
                             </h3>
-                            <p class="text-gray-700">مدیر پروژه و توسعه دهنده سیستم های مدیریت و وب سایت های استاتیک. ساخت بیش از ۱۰ وبلاگ شخصی و سیستم مدیریت</p>
+                            <p class="text-black text-lg">مدیر پروژه و توسعه دهنده سیستم های مدیریت و وب سایت های استاتیک. ساخت بیش از ۱۰ وبلاگ شخصی و سیستم مدیریت</p>
                         </div>
                     </div>
-                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                        <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors text-center">
-                            <i class="fas fa-globe ml-2"></i>
+                    <div class="mt-10 flex flex-col sm:flex-row gap-6">
+                        <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="btn-glow bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-center font-bold text-lg neon-glow hover:scale-105">
+                            <i class="fas fa-globe ml-3"></i>
                             مشاهده نمونه کارها
                         </a>
-                        <div class="text-gray-600 flex items-center">
-                            <i class="fas fa-map-marker-alt ml-2"></i>
+                        <div class="text-black flex items-center text-lg font-medium">
+                            <i class="fas fa-map-marker-alt ml-3 text-red-500"></i>
                             کابل، افغانستان
                         </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <!-- Skills Visualization -->
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold mb-6 text-center">مهارت های تکنیکی</h3>
-                        <div class="space-y-4">
+                <div class="relative slide-in-right">
+                    <!-- Enhanced Skills Visualization -->
+                    <div class="card-3d glass-effect p-10 rounded-3xl border-gradient">
+                        <h3 class="text-3xl font-bold mb-8 text-center text-black">مهارت های تکنیکی</h3>
+                        <div class="space-y-8">
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium">React & Next.js</span>
-                                    <span class="text-purple-600">95%</span>
+                                <div class="flex justify-between mb-4">
+                                    <span class="font-bold text-lg text-black">React & Next.js</span>
+                                    <span class="text-black font-bold text-lg">95%</span>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-purple-600 h-3 rounded-full" style="width: 95%"></div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 skill-bar">
+                                    <div class="bg-gradient-to-r from-purple-600 to-pink-600 h-4 rounded-full neon-glow" style="width: 95%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium">Node.js & MongoDB</span>
-                                    <span class="text-green-600">90%</span>
+                                <div class="flex justify-between mb-4">
+                                    <span class="font-bold text-lg text-black">Node.js & MongoDB</span>
+                                    <span class="text-black font-bold text-lg">90%</span>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-green-600 h-3 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium">UI/UX Design</span>
-                                    <span class="text-blue-600">85%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-blue-600 h-3 rounded-full" style="width: 85%"></div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 skill-bar">
+                                    <div class="bg-gradient-to-r from-green-600 to-teal-600 h-4 rounded-full neon-glow" style="width: 90%"></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium">Project Management</span>
-                                    <span class="text-orange-600">88%</span>
+                                <div class="flex justify-between mb-4">
+                                    <span class="font-bold text-lg text-black">UI/UX Design</span>
+                                    <span class="text-black font-bold text-lg">85%</span>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-orange-600 h-3 rounded-full" style="width: 88%"></div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 skill-bar">
+                                    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 h-4 rounded-full neon-glow" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-4">
+                                    <span class="font-bold text-lg text-black">Project Management</span>
+                                    <span class="text-black font-bold text-lg">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-4 skill-bar">
+                                    <div class="bg-gradient-to-r from-orange-600 to-red-600 h-4 rounded-full neon-glow" style="width: 88%"></div>
                                 </div>
                             </div>
                         </div>
@@ -292,74 +612,77 @@
     </section>
 
     <!-- Portfolio/Packages Section -->
-    <section id="portfolio" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">پکیج های وب سایت</h2>
-                <p class="text-xl text-gray-600">انتخاب کنید که کدام بهترین گزینه برای شماست</p>
+    <section id="portfolio" class="py-32 hero-gradient tech-grid particle-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 zoom-in">
+                <h2 class="text-6xl font-black text-black mb-6">پکیج های وب سایت</h2>
+                <p class="text-2xl text-black font-medium">انتخاب کنید که کدام بهترین گزینه برای شماست</p>
             </div>
 
             <!-- Static Websites -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold text-center mb-8 text-purple-600">وب سایت های استاتیک</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border-2 border-blue-200">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-blog text-white text-2xl"></i>
+            <div class="mb-20">
+                <h3 class="text-4xl font-black text-center mb-12 text-black">وب سایت های استاتیک</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="price-card card-3d glass-effect p-10 rounded-3xl border-gradient">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 pulse-ring">
+                                <i class="fas fa-blog text-white text-3xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-900">وبلاگ شخصی</h4>
+                            <h4 class="text-3xl font-bold text-black">وبلاگ شخصی</h4>
                         </div>
-                        <ul class="space-y-3 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>طراحی ساده</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>صفحات معرفی</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>گالری تصاویر</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>بدون پایگاه داده</li>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>طراحی ساده</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>صفحات معرفی</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>گالری تصاویر</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>بدون پایگاه داده</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-600 mb-2">$30-70</div>
-                            <div class="text-gray-600 mb-4">۲-۳ روز</div>
-                            <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">سفارش دهید</button>
+                            <div class="text-4xl font-black text-black mb-2">$30-70</div>
+                            <div class="text-xl text-black mb-3 font-bold">۲,۱۰۰ - ۴,۹۰۰ افغانی</div>
+                            <div class="text-black mb-6 text-lg">۲-۳ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-bold text-lg neon-glow hover:scale-105">سفارش دهید</button>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl border-2 border-green-200">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-building text-white text-2xl"></i>
+                    <div class="price-card card-3d glass-effect p-10 rounded-3xl border-gradient">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 pulse-ring">
+                                <i class="fas fa-building text-white text-3xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-900">وب سایت کسب و کار کوچک</h4>
+                            <h4 class="text-3xl font-bold text-black">وب سایت کسب و کار کوچک</h4>
                         </div>
-                        <ul class="space-y-3 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>صفحات خدمات</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>فرم تماس</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>گالری تصاویر</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>دکمه های CTA</li>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>صفحات خدمات</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>فرم تماس</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>گالری تصاویر</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>دکمه های CTA</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-green-600 mb-2">$50-120</div>
-                            <div class="text-gray-600 mb-4">۳-۴ روز</div>
-                            <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors">سفارش دهید</button>
+                            <div class="text-4xl font-black text-black mb-2">$50-120</div>
+                            <div class="text-xl text-black mb-3 font-bold">۳,۵۰۰ - ۸,۴۰۰ افغانی</div>
+                            <div class="text-black mb-6 text-lg">۳-۴ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-4 rounded-2xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 font-bold text-lg neon-glow hover:scale-105">سفارش دهید</button>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-xl border-2 border-purple-200">
-                        <div class="text-center mb-6">
-                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-rocket text-white text-2xl"></i>
+                    <div class="price-card card-3d glass-effect p-10 rounded-3xl border-gradient">
+                        <div class="text-center mb-8">
+                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 pulse-ring">
+                                <i class="fas fa-rocket text-white text-3xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-2xl font-bold text-gray-900">صفحه فرود / محصول</h4>
+                            <h4 class="text-3xl font-bold text-black">صفحه فرود / محصول</h4>
                         </div>
-                        <ul class="space-y-3 mb-6">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>تک صفحه</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>دکمه های CTA</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>فرم ثبت نام/تماس</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-2"></i>طراحی ریسپانسیو</li>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>تک صفحه</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>دکمه های CTA</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>فرم ثبت نام/تماس</li>
+                            <li class="flex items-center text-black text-lg font-semibold"><i class="fas fa-check text-green-400 ml-3 neon-glow"></i>طراحی ریسپانسیو</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">$40-100</div>
-                            <div class="text-gray-600 mb-4">۲-۳ روز</div>
-                            <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">سفارش دهید</button>
+                            <div class="text-4xl font-black text-black mb-2">$40-100</div>
+                            <div class="text-xl text-black mb-3 font-bold">۲,۸۰۰ - ۷,۰۰۰ افغانی</div>
+                            <div class="text-black mb-6 text-lg">۲-۳ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-bold text-lg neon-glow hover:scale-105">سفارش دهید</button>
                         </div>
                     </div>
                 </div>
@@ -367,82 +690,231 @@
 
             <!-- Dynamic Websites -->
             <div>
-                <h3 class="text-3xl font-bold text-center mb-8 text-orange-600">وب سایت های داینامیک</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card-hover bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl border-2 border-indigo-200">
-                        <div class="text-center mb-4">
-                            <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-graduation-cap text-white"></i>
+                <h3 class="text-4xl font-black text-center mb-12 text-black">وب سایت های داینامیک</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="price-card card-3d glass-effect p-8 rounded-2xl border-gradient bg-black/20">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-graduation-cap text-white text-xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-gray-900">سیستم مدیریت دوره ها</h4>
+                            <h4 class="text-xl font-bold text-black">سیستم مدیریت دوره ها</h4>
                         </div>
-                        <ul class="space-y-2 mb-4 text-sm">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>ثبت نام آنلاین</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>مدیریت دانشجو</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پرداخت شهریه</li>
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>ثبت نام آنلاین</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مدیریت دانشجو</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پرداخت شهریه</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-indigo-600 mb-1">$150-400</div>
-                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
-                            <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm">سفارش</button>
+                            <div class="text-2xl font-bold text-black mb-1">$150-400</div>
+                            <div class="text-sm text-black mb-2 font-bold">۱۰,۵۰۰ - ۲۸,۰۰۰ افغانی</div>
+                            <div class="text-black text-sm mb-4">۴-۶ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 text-sm font-bold neon-glow hover:scale-105">سفارش</button>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border-2 border-red-200">
-                        <div class="text-center mb-4">
-                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-shopping-cart text-white"></i>
+                    <div class="price-card card-3d glass-effect p-8 rounded-2xl border-gradient bg-black/20">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-shopping-cart text-white text-xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-gray-900">فروشگاه آنلاین</h4>
+                            <h4 class="text-xl font-bold text-black">فروشگاه آنلاین</h4>
                         </div>
-                        <ul class="space-y-2 mb-4 text-sm">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>نمایش محصولات</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>سبد خرید</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پرداخت آنلاین</li>
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>نمایش محصولات</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سبد خرید</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پرداخت آنلاین</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-red-600 mb-1">$200-500</div>
-                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
-                            <button class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition-colors text-sm">سفارش</button>
+                            <div class="text-2xl font-bold text-black mb-1">$200-500</div>
+                            <div class="text-sm text-black mb-2 font-bold">۱۴,۰۰۰ - ۳۵,۰۰۰ افغانی</div>
+                            <div class="text-black text-sm mb-4">۴-۶ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-red-600 to-pink-600 text-white py-3 rounded-xl hover:from-red-700 hover:to-pink-700 transition-all duration-300 text-sm font-bold neon-glow hover:scale-105">سفارش</button>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl border-2 border-yellow-200">
-                        <div class="text-center mb-4">
-                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-calculator text-white"></i>
+                    <div class="price-card card-3d glass-effect p-8 rounded-2xl border-gradient bg-black/20">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-calculator text-white text-xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-gray-900">سیستم حسابداری</h4>
+                            <h4 class="text-xl font-bold text-black">سیستم حسابداری</h4>
                         </div>
-                        <ul class="space-y-2 mb-4 text-sm">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>فروش و خرید</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>موجودی انبار</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>گزارشات</li>
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>فروش و خرید</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>موجودی انبار</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>گزارشات</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-yellow-600 mb-1">$250-600</div>
-                            <div class="text-gray-600 text-sm mb-3">۵-۶ روز</div>
-                            <button class="w-full bg-yellow-600 text-white py-2 rounded-lg hover:bg-yellow-700 transition-colors text-sm">سفارش</button>
+                            <div class="text-2xl font-bold text-black mb-1">$250-600</div>
+                            <div class="text-sm text-black mb-2 font-bold">۱۷,۵۰۰ - ۴۲,۰۰۰ افغانی</div>
+                            <div class="text-black text-sm mb-4">۵-۶ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-yellow-600 to-orange-600 text-white py-3 rounded-xl hover:from-yellow-700 hover:to-orange-700 transition-all duration-300 text-sm font-bold neon-glow hover:scale-105">سفارش</button>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl border-2 border-teal-200">
-                        <div class="text-center mb-4">
-                            <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <i class="fas fa-briefcase text-white"></i>
+                    <div class="price-card card-3d glass-effect p-8 rounded-2xl border-gradient bg-black/20">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-briefcase text-white text-xl icon-bounce"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-gray-900">وب سایت شرکتی</h4>
+                            <h4 class="text-xl font-bold text-black">وب سایت شرکتی</h4>
                         </div>
-                        <ul class="space-y-2 mb-4 text-sm">
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>پنل مدیریت محتوا</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>فرم درخواست خدمات</li>
-                            <li class="flex items-center"><i class="fas fa-check text-green-500 ml-1"></i>گزارش مشتریان</li>
+                        <ul class="space-y-3 mb-6 text-sm">
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پنل مدیریت محتوا</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>فرم درخواست خدمات</li>
+                            <li class="flex items-center text-black"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>گزارش مشتریان</li>
                         </ul>
                         <div class="text-center">
-                            <div class="text-2xl font-bold text-teal-600 mb-1">$150-400</div>
-                            <div class="text-gray-600 text-sm mb-3">۴-۶ روز</div>
-                            <button class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-colors text-sm">سفارش</button>
+                            <div class="text-2xl font-bold text-black mb-1">$150-400</div>
+                            <div class="text-sm text-black mb-2 font-bold">۱۰,۵۰۰ - ۲۸,۰۰۰ افغانی</div>
+                            <div class="text-black text-sm mb-4">۴-۶ روز</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white py-3 rounded-xl hover:from-teal-700 hover:to-blue-700 transition-all duration-300 text-sm font-bold neon-glow hover:scale-105">سفارش</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- نمونه کارهای سیستم های مدیریت آموزشی -->
+            <div class="mt-32">
+                <h3 class="text-4xl font-black text-center mb-12 text-black">نمونه کارهای سیستم های مدیریت آموزشی</h3>
+                <p class="text-center text-xl text-black mb-16">سیستم های مدیریت که برای مراکز آموزشی معتبر کابل طراحی کرده ام</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- مرکز آموزشی کاریابی -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-briefcase text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">مرکز آموزشی کاریابی</h4>
+                            <p class="text-black text-sm drop-shadow-md">شهر نو، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم ثبت نام آنلاین</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مدیریت دوره های حرفه ای</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم پرداخت شهریه</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>گواهینامه های دیجیتال</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-black py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+
+                    <!-- آکادمی کامپیوتر هرات -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-laptop-code text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">آکادمی کامپیوتر هرات</h4>
+                            <p class="text-black text-sm drop-shadow-md">کارته چهار، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مدیریت دوره های IT</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم حضور و غیاب</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>آزمون های آنلاین</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پورتال دانشجویی</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-green-600 to-teal-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-green-600 to-teal-600 text-black py-3 rounded-xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+
+                    <!-- موسسه آموزشی پیام نور -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-graduation-cap text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">موسسه آموزشی پیام نور</h4>
+                            <p class="text-black text-sm drop-shadow-md">وزیر اکبر خان، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم مدیریت دانشجو</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>کتابخانه دیجیتال</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم نمرات</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پنل اساتید</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-purple-600 to-pink-600 text-black py-3 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+
+                    <!-- مرکز آموزش زبان انگلیسی ACDC -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-language text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">مرکز آموزش زبان ACDC</h4>
+                            <p class="text-black text-sm drop-shadow-md">شهر نو، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم سطح بندی زبان</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>آزمون های تعیین سطح</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>کلاس های آنلاین</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>گواهینامه بین المللی</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-orange-600 to-red-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-orange-600 to-red-600 text-black py-3 rounded-xl hover:from-orange-700 hover:to-red-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+
+                    <!-- آکادمی فنی و حرفه ای کابل -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-tools text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">آکادمی فنی و حرفه ای کابل</h4>
+                            <p class="text-black text-sm drop-shadow-md">کارته سه، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مدیریت کارگاه ها</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>سیستم ابزار و تجهیزات</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>ارزیابی عملی</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مدارک حرفه ای</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-cyan-600 to-blue-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-black py-3 rounded-xl hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+
+                    <!-- مرکز آموزش مهارت های دیجیتال -->
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/30 hover:bg-black/40 transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-4 pulse-ring">
+                                <i class="fas fa-mobile-alt text-white text-2xl icon-bounce"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-black drop-shadow-lg mb-2">مرکز آموزش مهارت های دیجیتال</h4>
+                            <p class="text-black text-sm drop-shadow-md">میکروریان، کابل</p>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>دوره های طراحی گرافیک</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>آموزش برنامه نویسی</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>مارکتینگ دیجیتال</li>
+                            <li class="flex items-center text-black drop-shadow-md"><i class="fas fa-check text-green-400 ml-2 neon-glow"></i>پروژه های عملی</li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-r from-pink-600 to-rose-600 text-black px-4 py-2 rounded-full text-sm font-bold mb-4 drop-shadow-lg">پروژه تکمیل شده</div>
+                            <button class="btn-glow w-full bg-gradient-to-r from-pink-600 to-rose-600 text-black py-3 rounded-xl hover:from-pink-700 hover:to-rose-700 transition-all duration-300 font-bold neon-glow hover:scale-105">مشاهده جزئیات</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-16">
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient bg-black/20 inline-block">
+                        <h4 class="text-2xl font-bold text-black mb-4 drop-shadow-lg">آماده همکاری با مرکز آموزشی شما هستیم!</h4>
+                        <p class="text-black text-lg mb-6 drop-shadow-md">سیستم مدیریت حرفه ای برای مرکز آموزشی خود سفارش دهید</p>
+                        <a href="https://wa.me/93764002319" class="btn-glow bg-gradient-to-r from-green-600 to-teal-600 text-black px-10 py-4 rounded-2xl hover:from-green-700 hover:to-teal-700 transition-all duration-300 font-bold text-lg neon-glow hover:scale-105 inline-block">
+                            <i class="fab fa-whatsapp ml-3 icon-bounce"></i>
+                            شروع همکاری
+                        </a>
                     </div>
                 </div>
             </div>
@@ -450,129 +922,129 @@
     </section>
 
     <!-- Services Detail -->
-    <section id="services" class="py-20 bg-gray-50">
+    <section id="services" class="py-32 bg-gradient-to-br from-gray-50 to-blue-50 particle-bg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">خدمات تخصصی ما</h2>
-                <p class="text-xl text-gray-600">راه حل های کامل برای حضور دیجیتال شما</p>
+            <div class="text-center mb-20 zoom-in">
+                <h2 class="text-6xl font-black text-black mb-6">خدمات تخصصی ما</h2>
+                <p class="text-2xl text-black font-medium">راه حل های کامل برای حضور دیجیتال شما</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-laptop-code text-white text-3xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-laptop-code text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت استاتیک</h3>
-                    <p class="text-gray-600">وب سایت های سریع و بهینه برای نمایش محتوا و خدمات</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">توسعه وب سایت استاتیک</h3>
+                    <p class="text-black text-lg">وب سایت های سریع و بهینه برای نمایش محتوا و خدمات</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-database text-white text-3xl"></i>
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-database text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">توسعه وب سایت داینامیک</h3>
-                    <p class="text-gray-600">سیستم های تعاملی با پایگاه داده و قابلیت های پیشرفته</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">توسعه وب سایت داینامیک</h3>
+                    <p class="text-black text-lg">سیستم های تعاملی با پایگاه داده و قابلیت های پیشرفته</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-tools text-white text-3xl"></i>
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-tools text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">سیستم های مدیریت</h3>
-                    <p class="text-gray-600">CMS، فروشگاه آنلاین، سیستم های آموزشی و حسابداری</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">سیستم های مدیریت</h3>
+                    <p class="text-black text-lg">CMS، فروشگاه آنلاین، سیستم های آموزشی و حسابداری</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center card-hover">
-                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-headset text-white text-3xl"></i>
+                <div class="card-3d glass-effect p-10 rounded-3xl text-center border-gradient holographic">
+                    <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-8 pulse-ring">
+                        <i class="fas fa-headset text-white text-4xl icon-bounce"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">هاستینگ و پشتیبانی</h3>
-                    <p class="text-gray-600">خدمات هاستینگ مطمئن و پشتیبانی فنی ۲۴ ساعته</p>
+                    <h3 class="text-2xl font-bold mb-6 text-black">هاستینگ و پشتیبانی</h3>
+                    <p class="text-black text-lg">خدمات هاستینگ مطمئن و پشتیبانی فنی ۲۴ ساعته</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">با ما در تماس باشید</h2>
-                <p class="text-xl text-gray-600">آماده همکاری با شما هستیم</p>
+    <section id="contact" class="py-32 morphing-bg particle-bg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 zoom-in">
+                <h2 class="text-6xl font-black text-white mb-6 text-shadow-glow">با ما در تماس باشید</h2>
+                <p class="text-2xl text-black font-medium">آماده همکاری با شما هستیم</p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Contact Form -->
-                <div class="bg-gray-50 p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6">فرم تماس</h3>
-                    <form id="contactForm" class="space-y-6">
+                <div class="card-3d glass-effect p-10 rounded-3xl border-gradient slide-in-left">
+                    <h3 class="text-3xl font-bold mb-8 text-black">فرم تماس</h3>
+                    <form id="contactForm" class="space-y-8">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">نام</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                            <label class="block text-lg font-bold text-black mb-3">نام</label>
+                            <input type="text" id="name" class="w-full px-6 py-4 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-500 focus:border-transparent glass-effect text-black placeholder-gray-600 text-lg" placeholder="نام خود را وارد کنید" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">ایمیل</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                            <label class="block text-lg font-bold text-black mb-3">ایمیل</label>
+                            <input type="email" id="email" class="w-full px-6 py-4 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-500 focus:border-transparent glass-effect text-black placeholder-gray-600 text-lg" placeholder="ایمیل خود را وارد کنید" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">موضوع</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                            <label class="block text-lg font-bold text-black mb-3">موضوع</label>
+                            <input type="text" id="subject" class="w-full px-6 py-4 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-500 focus:border-transparent glass-effect text-black placeholder-gray-600 text-lg" placeholder="موضوع پیام" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">پیام</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" required></textarea>
+                            <label class="block text-lg font-bold text-black mb-3">پیام</label>
+                            <textarea id="message" rows="6" class="w-full px-6 py-4 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-500 focus:border-transparent glass-effect text-black placeholder-gray-600 text-lg" placeholder="پیام خود را بنویسید" required></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
-                            <i class="fas fa-paper-plane ml-2"></i>
+                        <button type="submit" class="btn-glow w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-5 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 font-bold text-xl neon-glow hover:scale-105">
+                            <i class="fas fa-paper-plane ml-3 icon-bounce"></i>
                             ارسال پیام
                         </button>
                     </form>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="space-y-8">
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-green-700">راه های تماس</h3>
-                        <div class="space-y-4">
-                            <a href="https://wa.me/93764002319" class="flex items-center p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
-                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center ml-4">
-                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                <div class="space-y-10 slide-in-right">
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient">
+                        <h3 class="text-2xl font-bold mb-6 text-black">راه های تماس</h3>
+                        <div class="space-y-6">
+                            <a href="https://wa.me/93764002319" class="flex items-center p-6 glass-effect rounded-2xl hover:scale-105 transition-all duration-300 border-gradient">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center ml-6 pulse-ring">
+                                    <i class="fab fa-whatsapp text-white text-2xl icon-bounce"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">واتساپ</div>
-                                    <div class="text-gray-600">+93 764 002 319</div>
+                                    <div class="font-bold text-black text-xl">واتساپ</div>
+                                    <div class="text-black text-lg">+93 764 002 319</div>
                                 </div>
                             </a>
-                            <a href="mailto:0764002319ali@gmail.com" class="flex items-center p-4 bg-white rounded-lg hover:shadow-md transition-shadow">
-                                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center ml-4">
-                                    <i class="fas fa-envelope text-white text-xl"></i>
+                            <a href="mailto:0764002319ali@gmail.com" class="flex items-center p-6 glass-effect rounded-2xl hover:scale-105 transition-all duration-300 border-gradient">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center ml-6 pulse-ring">
+                                    <i class="fas fa-envelope text-white text-2xl icon-bounce"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">ایمیل</div>
-                                    <div class="text-gray-600">0764002319ali@gmail.com</div>
+                                    <div class="font-bold text-black text-xl">ایمیل</div>
+                                    <div class="text-black text-lg">0764002319ali@gmail.com</div>
                                 </div>
                             </a>
-                            <div class="flex items-center p-4 bg-white rounded-lg">
-                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center ml-4">
-                                    <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                            <div class="flex items-center p-6 glass-effect rounded-2xl border-gradient">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center ml-6 pulse-ring">
+                                    <i class="fas fa-map-marker-alt text-white text-2xl icon-bounce"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold">موقعیت</div>
-                                    <div class="text-gray-600">کابل، افغانستان</div>
+                                    <div class="font-bold text-black text-xl">موقعیت</div>
+                                    <div class="text-black text-lg">کابل، افغانستان</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
-                        <h3 class="text-xl font-bold mb-4 text-purple-700">لینک های مفید</h3>
-                        <div class="space-y-3">
-                            <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
-                                <i class="fas fa-globe text-purple-600 ml-3"></i>
-                                <span>نمونه کارها و وبلاگ شخصی</span>
+                    <div class="card-3d glass-effect p-8 rounded-3xl border-gradient">
+                        <h3 class="text-2xl font-bold mb-6 text-black">لینک های مفید</h3>
+                        <div class="space-y-4">
+                            <a href="https://ali638-cyber.github.io/AliMohammad/" target="_blank" class="flex items-center p-4 glass-effect rounded-2xl hover:scale-105 transition-all duration-300 border-gradient">
+                                <i class="fas fa-globe text-purple-400 ml-4 text-xl icon-bounce"></i>
+                                <span class="text-black text-lg font-medium">نمونه کارها و وبلاگ شخصی</span>
                             </a>
-                            <a href="#" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
-                                <i class="fab fa-linkedin text-blue-600 ml-3"></i>
-                                <span>LinkedIn</span>
+                            <a href="#" class="flex items-center p-4 glass-effect rounded-2xl hover:scale-105 transition-all duration-300 border-gradient">
+                                <i class="fab fa-linkedin text-blue-400 ml-4 text-xl icon-bounce"></i>
+                                <span class="text-black text-lg font-medium">LinkedIn</span>
                             </a>
-                            <a href="#" class="flex items-center p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
-                                <i class="fab fa-github text-gray-800 ml-3"></i>
-                                <span>GitHub</span>
+                            <a href="#" class="flex items-center p-4 glass-effect rounded-2xl hover:scale-105 transition-all duration-300 border-gradient">
+                                <i class="fab fa-github text-gray-300 ml-4 text-xl icon-bounce"></i>
+                                <span class="text-black text-lg font-medium">GitHub</span>
                             </a>
                         </div>
                     </div>
@@ -582,57 +1054,72 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">علی محمد کریمی (طراح وب و اپلیکشن)</h3>
-                    <p class="text-gray-300 mb-4">ارائه راه حل های دیجیتال حرفه ای برای کسب و کارها و افراد در افغانستان</p>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="https://wa.me/93764002319" class="text-green-400 hover:text-green-300">
-                            <i class="fab fa-whatsapp text-2xl"></i>
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-pink-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-black mb-6 text-gradient">علی محمد کریمی</h3>
+                    <p class="text-gray-300 mb-6 text-lg leading-relaxed">ارائه راه حل های دیجیتال حرفه ای برای کسب و کارها و افراد در افغانستان</p>
+                    <div class="flex space-x-6 space-x-reverse">
+                        <a href="https://wa.me/93764002319" class="text-green-400 hover:text-green-300 transition-all duration-300 hover:scale-125 neon-glow">
+                            <i class="fab fa-whatsapp text-3xl icon-bounce"></i>
                         </a>
-                        <a href="mailto:0764002319ali@gmail.com" class="text-blue-400 hover:text-blue-300">
-                            <i class="fas fa-envelope text-2xl"></i>
+                        <a href="mailto:0764002319ali@gmail.com" class="text-blue-400 hover:text-blue-300 transition-all duration-300 hover:scale-125 neon-glow">
+                            <i class="fas fa-envelope text-3xl icon-bounce"></i>
                         </a>
-                        <a href="https://ali638-cyber.github.io/AliMohammad/" class="text-purple-400 hover:text-purple-300">
-                            <i class="fas fa-globe text-2xl"></i>
+                        <a href="https://ali638-cyber.github.io/AliMohammad/" class="text-purple-400 hover:text-purple-300 transition-all duration-300 hover:scale-125 neon-glow">
+                            <i class="fas fa-globe text-3xl icon-bounce"></i>
                         </a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">خدمات</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>وب سایت های استاتیک</li>
-                        <li>وب سایت های داینامیک</li>
-                        <li>سیستم های مدیریت</li>
-                        <li>فروشگاه های آنلاین</li>
-                        <li>هاستینگ و پشتیبانی</li>
+                <div class="zoom-in">
+                    <h4 class="text-2xl font-bold mb-6 text-white">خدمات</h4>
+                    <ul class="space-y-3 text-gray-300 text-lg">
+                        <li class="hover:text-white transition-colors duration-300 cursor-pointer">وب سایت های استاتیک</li>
+                        <li class="hover:text-white transition-colors duration-300 cursor-pointer">وب سایت های داینامیک</li>
+                        <li class="hover:text-white transition-colors duration-300 cursor-pointer">سیستم های مدیریت</li>
+                        <li class="hover:text-white transition-colors duration-300 cursor-pointer">فروشگاه های آنلاین</li>
+                        <li class="hover:text-white transition-colors duration-300 cursor-pointer">هاستینگ و پشتیبانی</li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">تماس سریع</h4>
-                    <div class="space-y-2 text-gray-300">
-                        <p><i class="fas fa-phone ml-2"></i>+93 764 002 319</p>
-                        <p><i class="fas fa-envelope ml-2"></i>0764002319ali@gmail.com</p>
-                        <p><i class="fas fa-map-marker-alt ml-2"></i>کابل، افغانستان</p>
+                <div class="slide-in-right">
+                    <h4 class="text-2xl font-bold mb-6 text-white">تماس سریع</h4>
+                    <div class="space-y-4 text-gray-300 text-lg">
+                        <p class="flex items-center hover:text-white transition-colors duration-300">
+                            <i class="fas fa-phone ml-3 text-green-400 icon-bounce"></i>
+                            +93 764 002 319
+                        </p>
+                        <p class="flex items-center hover:text-white transition-colors duration-300">
+                            <i class="fas fa-envelope ml-3 text-blue-400 icon-bounce"></i>
+                            0764002319ali@gmail.com
+                        </p>
+                        <p class="flex items-center hover:text-white transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt ml-3 text-red-400 icon-bounce"></i>
+                            کابل، افغانستان
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; ۲۰۲۴ کریمی وب استودیو. تمامی حقوق محفوظ است.</p>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p class="text-lg">&copy; ۲۰۲۴ علی محمد کریمی - طراح وب و اپلیکشن. تمامی حقوق محفوظ است.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Enhanced mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+            
+            // Add animation
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.style.animation = 'slideInRight 0.3s ease-out';
+            }
         });
 
-        // Smooth scrolling for navigation links
+        // Enhanced smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -642,11 +1129,17 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 }
             });
         });
 
-        // Contact form handling
+        // Enhanced contact form handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -656,40 +1149,63 @@
             const message = document.getElementById('message').value;
             
             // Create WhatsApp message
-            const whatsappMessage = `سلام! من ${name} هستم.
+            const whatsappMessage = `🌟 سلام! من ${name} هستم.
             
-موضوع: ${subject}
+📋 موضوع: ${subject}
 
-پیام: ${message}
+💬 پیام: ${message}
 
-ایمیل من: ${email}`;
+📧 ایمیل من: ${email}
+
+🚀 منتظر پاسخ شما هستم!`;
             
             const whatsappUrl = `https://wa.me/93764002319?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappUrl, '_blank');
             
-            // Show success message
-            alert('پیام شما آماده ارسال است! در حال انتقال به واتساپ...');
+            // Show enhanced success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check ml-3"></i>پیام ارسال شد!';
+            button.classList.add('bg-green-600');
             
-            // Reset form
-            this.reset();
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-green-600');
+                this.reset();
+            }, 3000);
         });
 
-        // Order buttons functionality
+        // Enhanced order buttons functionality
         document.querySelectorAll('button').forEach(button => {
             if (button.textContent.includes('سفارش')) {
                 button.addEventListener('click', function() {
-                    const packageName = this.closest('.card-hover').querySelector('h4').textContent;
-                    const price = this.closest('.card-hover').querySelector('.font-bold').textContent;
+                    const packageCard = this.closest('.price-card') || this.closest('.card-3d');
+                    const packageName = packageCard.querySelector('h4').textContent;
+                    const price = packageCard.querySelector('.font-black, .font-bold').textContent;
                     
-                    const message = `سلام! من علاقه مند به سفارش پکیج "${packageName}" با قیمت ${price} هستم. لطفاً اطلاعات بیشتری ارائه دهید.`;
+                    const message = `🎯 سلام! من علاقه مند به سفارش پکیج "${packageName}" با قیمت ${price} هستم.
+
+✨ لطفاً اطلاعات بیشتری ارائه دهید:
+• زمان تحویل دقیق
+• مراحل کاری
+• نحوه پرداخت
+• پشتیبانی پس از تحویل
+
+🚀 منتظر شروع همکاری هستم!`;
                     
                     const whatsappUrl = `https://wa.me/93764002319?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
+                    
+                    // Add click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
                 });
             }
         });
 
-        // Add scroll animations
+        // Enhanced scroll animations with Intersection Observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -698,17 +1214,77 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    if (entry.target.classList.contains('slide-in-left')) {
+                        entry.target.style.animation = 'slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    } else if (entry.target.classList.contains('slide-in-right')) {
+                        entry.target.style.animation = 'slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    } else if (entry.target.classList.contains('zoom-in')) {
+                        entry.target.style.animation = 'zoomIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    }
+                    entry.target.style.opacity = '1';
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and sections
-        document.querySelectorAll('.card-hover, section').forEach(el => {
+        // Observe elements with animation classes
+        document.querySelectorAll('.slide-in-left, .slide-in-right, .zoom-in').forEach(el => {
+            el.style.opacity = '0';
             observer.observe(el);
         });
 
-        // Add typing effect to hero title
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.backdropFilter = 'blur(25px)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Add particle cursor effect
+        document.addEventListener('mousemove', function(e) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = e.clientX + 'px';
+            particle.style.top = e.clientY + 'px';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '9999';
+            particle.style.opacity = '0.7';
+            particle.style.animation = 'particleFade 1s ease-out forwards';
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 1000);
+        });
+
+        // Add particle fade animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFade {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced typing effect for hero title
         const heroTitle = document.querySelector('#home h1');
         const originalText = heroTitle.textContent;
         heroTitle.textContent = '';
@@ -718,14 +1294,78 @@
             if (i < originalText.length) {
                 heroTitle.textContent += originalText.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 80);
+            } else {
+                // Add blinking cursor effect
+                const cursor = document.createElement('span');
+                cursor.textContent = '|';
+                cursor.style.animation = 'blink 1s infinite';
+                cursor.style.color = 'white';
+                heroTitle.appendChild(cursor);
+                
+                // Add blink animation
+                const blinkStyle = document.createElement('style');
+                blinkStyle.textContent = `
+                    @keyframes blink {
+                        0%, 50% { opacity: 1; }
+                        51%, 100% { opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(blinkStyle);
             }
         }
         
         // Start typing effect after page load
         window.addEventListener('load', function() {
-            setTimeout(typeWriter, 1000);
+            setTimeout(typeWriter, 1500);
+        });
+
+        // Add loading screen
+        window.addEventListener('load', function() {
+            const loader = document.createElement('div');
+            loader.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                transition: opacity 0.5s ease-out;
+            `;
+            
+            const spinner = document.createElement('div');
+            spinner.style.cssText = `
+                width: 60px;
+                height: 60px;
+                border: 4px solid rgba(255,255,255,0.3);
+                border-top: 4px solid white;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            `;
+            
+            const spinStyle = document.createElement('style');
+            spinStyle.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(spinStyle);
+            
+            loader.appendChild(spinner);
+            document.body.appendChild(loader);
+            
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 2000);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9743ea26e26bfd9c',t:'MTc1NjA0OTY3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97444da7e555fd79',t:'MTc1NjA1Mzc1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
